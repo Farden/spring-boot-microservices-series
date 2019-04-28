@@ -14,14 +14,7 @@ pipeline {
                 }
             }
         }
-      stage("build & SonarQube analysis") {
-            agent any
-            steps {
-              withSonarQubeEnv('sonarqube') {
-                sh 'mvn clean package sonar:sonar'
-              }
-            }
-          }
-        }
-      }
+    }
+}
+
 
