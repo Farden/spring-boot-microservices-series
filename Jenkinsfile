@@ -14,14 +14,16 @@ pipeline {
                 }
             }
         }
-     stage("build & SonarQube analysis") {
-       agent any
-       steps {
-         withSonarQubeEnv('sonarqube') {
-          sh 'mvn clean package sonar:sonar'
-              }
+      stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                    // Optionally use a Maven environment you've configured already
+                    withMaven(maven:'maven-3') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                }
             }
-          }
+         }
       }
   }
 
