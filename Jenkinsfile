@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('scm checout') {
       steps {
-        git(url: 'https://github.com/Farden/spring-boot-microservices-series.git', branch: 'master', credentialsId: 'github')
+        git(url: 'https://github.com/Farden/spring-boot-microservices-series.git', branch: 'master')
       }
     }
     stage ('Build and Package') {
